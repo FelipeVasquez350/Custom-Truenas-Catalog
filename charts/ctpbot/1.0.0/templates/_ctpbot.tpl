@@ -9,6 +9,7 @@ workload:
         ctpbot:
           enabled: true
           primary: true
+          tty: true
           imageSelector: image
           securityContext:
             runAsUser: {{ .Values.ctpbotRunAs.user }}
