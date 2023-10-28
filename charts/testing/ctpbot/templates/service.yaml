@@ -1,0 +1,6 @@
+{{ $selectors := list }}
+{{ $selectors = mustAppend $selectors (dict "key" "app" "value" (include "common.names.name" .) ) }}
+{{ $selectors = mustAppend $selectors (dict "key" "release" "value" .Release.Name ) }}
+{{ $params := . }}
+{{ $_ := set .Values "extraSelectorLabels" $selectors }}
+{{ include "common.classes.service" $params }}
