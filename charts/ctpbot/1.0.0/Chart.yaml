@@ -11,6 +11,10 @@ maintainers:
   - name: v
     url: https://felipe350.com/
     email: felipe.vasquez.lazzara@gmail.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.0.0
 home: https://github.com/FelipeVasquez350/CTPBot
 icon: https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/ctpbot/1.0.0/icon.png
 sources:
