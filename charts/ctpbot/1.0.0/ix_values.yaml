@@ -16,5 +16,5 @@ ctpbotRunAs:
 ctpbotStorage:
   archive:
     type: ixVolume
-    datasetName: ctpbot_archive
+    datasetName: archive
   additionalStorages: []
