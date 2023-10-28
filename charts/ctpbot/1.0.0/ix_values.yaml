@@ -1,0 +1,20 @@
+image:
+  repository: ghcr.io/felipevasquez350/ctpbot
+  pullPolicy: IfNotPresent
+  tag: latest
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+ctpbotConfig:
+  additionalEnvs: []
+ctpbotRunAs:
+  user: 568
+  group: 568
+ctpbotStorage:
+  archive:
+    type: ixVolume
+    datasetName: ctpbot_archive
+  additionalStorages: []

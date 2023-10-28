@@ -1,0 +1,8 @@
+runAsContext:
+  - userName: ctpbot
+    groupName: ctpbot
+    gid: 568
+    uid: 568
+    description: CTPBot can run as any non-root user.
+capabilities: []
+hostMounts: []

@@ -1,184 +1,149 @@
 groups:
-  - name: "Configuration"
-    description: "CTPBot application configuration"
-  - name: "Storage"
-    description: "Configure storage for CTPBot"
-  - name: "Networking"
-    description: "Networking Configuration for CTPBot"
-  - name: "Advanced DNS Settings"
-    description: "Configure DNS settings"
-  - name: "Resource Limits"
-    description: "Set CPU/memory limits for Kubernetes Pod"
-
-portals:
-  web_portal:
-    protocols:
-      - "http"
-    host:
-      - "$node_ip"
-    ports:
-      - "$variable-web_port"
-    path: "/"
+  - name: CTPBot Configuration
+    description: CTPBot application configuration
+  - name: User and Group Configuration
+    description: Configure User and Group for CTPBot
+  - name: Storage Configuration
+    description: Configure storage for CTPBot
+  - name: Resource Limits
+    description: Set CPU/memory limits for Kubernetes Pod
 
 questions:
-  - variable: dnsConfig
-    label: "DNS Configuration"
-    group: "Advanced DNS Settings"
+  - variable: ctpbotConfig
+    label: ""
+    group: CTPBot Configuration
     schema:
       type: dict
       attrs:
-        - variable: options
-          label: "DNS Options"
+        - variable: additionalEnvs
+          label: Additional Environment Variables
+          description: Configure additional environment variables for CTPBot.
           schema:
             type: list
+            default: []
             items:
-              - variable: optionsEntry
-                label: "Option Entry Configuration"
+              - variable: env
+                label: Environment Variable
                 schema:
                   type: dict
                   attrs:
                     - variable: name
-                      label: "Option Name"
+                      label: Name
                       schema:
                         type: string
                         required: true
                     - variable: value
-                      label: "Option Value"
+                      label: Value
                       schema:
                         type: string
                         required: true
 
-  - variable: ownerUID
-    label: "Owner User ID"
-    group: Configuration
+  - variable: ctpbotRunAs
+    label: ""
+    group: User and Group Configuration
     schema:
-      type: int
-      default: 568
-      min: 1
-      max: 65535
-
-  - variable: ownerGID
-    label: "Owner Group ID"
-    group: Configuration
-    schema:
-      type: int
-      default: 568
-      min: 1
-      max: 65535
-
-  - variable: environmentVariables
-    label: "CTPBot environment"
-    group: "Configuration"
-    schema:
-      type: list
-      default: [ ]
-      items:
-        - variable: environmentVariable
-          label: "Environment Variable"
+      type: dict
+      attrs:
+        - variable: user
+          label: User ID
+          description: The user id that CTPBot will run as.
           schema:
-            type: dict
-            attrs:
-              - variable: name
-                label: "Name"
-                schema:
-                  type: string
-              - variable: value
-                label: "Value"
-                schema:
-                  type: string
+            type: int
+            min: 2
+            default: 568
+            required: true
+        - variable: group
+          label: Group ID
+          description: The group id that CTPBot will run as.
+          schema:
+            type: int
+            min: 2
+            default: 568
+            required: true
 
-  - variable: appVolumeMounts
-    label: "CTPBot Storage"
-    group: "Storage"
+  - variable: ctpbotStorage
+    label: ""
+    group: Storage Configuration
     schema:
       type: dict
       attrs:
         - variable: config
-          label: "Configuration Volume"
+          label: CTPBot Config Storage
+          description: The path to store CTPBot Configuration.
           schema:
             type: dict
             attrs:
-              - variable: datasetName
-                label: "Configuration Volume Dataset Name"
+              - variable: type
+                label: Type
+                description: |
+                  ixVolume: Is dataset created automatically by the system.</br>
+                  Host Path: Is a path that already exists on the system.
                 schema:
                   type: string
+                  required: true
+                  immutable: true
+                  default: "ixVolume"
+                  enum:
+                    - value: "hostPath"
+                      description: Host Path (Path that already exists on the system)
+                    - value: "ixVolume"
+                      description: ixVolume (Dataset created automatically by the system)
+              - variable: datasetName
+                label: Dataset Name
+                schema:
+                  type: string
+                  show_if: [["type", "=", "ixVolume"]]
+                  required: true
                   hidden: true
+                  immutable: true
+                  default: "config"
                   $ref:
                     - "normalize/ixVolume"
-                  show_if: [["hostPathEnabled", "=", false]]
-                  default: "ix-ctpbot_config"
-                  editable: false
-              - variable: mountPath
-                label: "Configuration Mount Path"
-                description: "Path where the volume will be mounted inside the pod"
+              - variable: hostPath
+                label: Host Path
                 schema:
-                  type: path
-                  hidden: true
-                  editable: true
-                  default: "/var/ctpbot"
-              - variable: hostPathEnabled
-                label: "Enable Custom Host Path for CTPBot Configuration Volume"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "Host Path for CTPBot Configuration Volume"
-                      schema:
-                        type: hostpath
-                        required: true
-                        $ref:
-                          - "validations/lockedHostPath"
-  
-  - variable: extraAppVolumeMounts
-    label: "Extra Host Path Volumes"
-    group: "Storage"
+                  type: hostpath
+                  show_if: [["type", "=", "hostPath"]]
+                  immutable: true
+                  required: true
+ 
+  - variable: resources
+    label: ""
+    group: Resources Limits
     schema:
-      type: list
-      items:
-        - variable: extraAppVolume
-          label: "Host Path Volume"
-          description: "Add an extra host path volume for CTPBot application"
+      type: dict
+      attrs:
+        - variable: limits
+          label: Limits
           schema:
             type: dict
             attrs:
-              - variable: mountPath
-                label: "Mount Path in Pod"
-                description: "Path where the volume will be mounted inside the pod"
+              - variable: cpu
+                label: CPU
+                description: CPU limit for CTPBot.
                 schema:
-                  type: path
+                  type: string
+                  max_length: 6
+                  valid_chars: '^(0\.[1-9]|[1-9][0-9]*)(\.[0-9]|m?)$'
+                  valid_chars_error: |
+                    Valid CPU limit formats are</br>
+                    - Plain Integer - eg. 1</br>
+                    - Float - eg. 0.5</br>
+                    - Milicpu - eg. 500m
+                  default: "4000m"
                   required: true
-              - variable: hostPath
-                label: "Host Path"
-                description: "Host path"
+              - variable: memory
+                label: Memory
+                description: Memory limit for CTPBot.
                 schema:
-                  type: hostpath
+                  type: string
+                  max_length: 12
+                  valid_chars: '^[1-9][0-9]*([EPTGMK]i?|e[0-9]+)?$'
+                  valid_chars_error: |
+                    Valid Memory limit formats are</br>
+                    - Suffixed with E/P/T/G/M/K - eg. 1G</br>
+                    - Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi</br>
+                    - Plain Integer in bytes - eg. 1024</br>
+                    - Exponent - eg. 134e6
+                  default: "8Gi"
                   required: true
-                  $ref:
-                    - "validations/lockedHostPath"
-
-  - variable: enableResourceLimits
-    label: "Enable Pod resource limits"
-    group: "Resource Limits"
-    schema:
-      type: boolean
-      default: false
-  - variable: cpuLimit
-    label: "CPU Limit"
-    description: "CPU resource limit allow  plain integer values with suffix m(milli) e.g 1000m, 100."
-    group: "Resource Limits"
-    schema:
-      type: string
-      show_if: [["enableResourceLimits", "=", true]]
-      valid_chars: "^\\d+(?:\\.\\d+(?!.*m$)|m?$)"
-      default: "4000m"
-  - variable: memLimit
-    label: "Memory Limit"
-    group: "Resource Limits"
-    description: "Memory limits is specified by number of bytes. Followed by quantity suffix like E,P,T,G,M,k and Ei,Pi,Ti,Mi,Gi,Ki can also be used. e.g 129e6, 129M,  128974848000m, 123Mi"
-    schema:
-      type: string
-      show_if: [["enableResourceLimits", "=", true]]
-      valid_chars: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
-      default: "8Gi"
