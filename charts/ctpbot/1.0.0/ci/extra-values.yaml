@@ -1,0 +1,4 @@
+ctpbotStorage:
+  archive:
+    type: hostPath
+    hostPath: /mnt/{{ .Release.Namespace }}/archive
