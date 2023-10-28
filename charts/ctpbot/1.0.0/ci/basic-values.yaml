@@ -1,0 +1,8 @@
+ctpbotRunAs:
+  user: 1000
+  group: 1000
+
+ctpbotStorage:
+  archive:
+    type: hostPath
+    hostPath: /mnt/{{ .Release.Namespace }}/archive
