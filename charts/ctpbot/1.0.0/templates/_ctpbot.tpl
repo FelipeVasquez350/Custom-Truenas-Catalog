@@ -55,14 +55,6 @@ workload:
                                                         "mode" "check"
                                                         "type" "init") | nindent 8 }}
 
-{{/* Service */}}
-service:
-  ctpbot:
-    enabled: true
-    primary: true
-    type: NodePort
-    targetSelector: ctpbot
-   
 {{/* Persistence */}}
 persistence:
   archive:
