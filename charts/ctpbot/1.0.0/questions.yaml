@@ -96,7 +96,7 @@ questions:
                   required: true
                   hidden: true
                   immutable: true
-                  default: "config"
+                  default: "archive"
                   $ref:
                     - "normalize/ixVolume"
               - variable: hostPath
