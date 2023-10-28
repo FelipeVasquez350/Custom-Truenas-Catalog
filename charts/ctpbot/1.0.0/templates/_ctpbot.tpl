@@ -13,6 +13,7 @@ workload:
           securityContext:
             runAsUser: {{ .Values.ctpbotRunAs.user }}
             runAsGroup: {{ .Values.ctpbotRunAs.group }}
+          {{ with .Values.ctpbotConfig.additionalEnvs }}
           envList:
             {{ range $env := . }}
             - name: {{ $env.name }}
