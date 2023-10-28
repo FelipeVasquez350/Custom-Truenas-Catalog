@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/felipevasquez350/ctpbot
+  repository: node
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: 20.9.0-alpine3.18
 
 resources:
   limits:
