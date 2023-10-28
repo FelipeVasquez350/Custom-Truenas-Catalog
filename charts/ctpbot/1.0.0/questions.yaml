@@ -109,7 +109,7 @@ questions:
  
   - variable: resources
     label: ""
-    group: Resources Limits
+    group: Resource Limits
     schema:
       type: dict
       attrs:
