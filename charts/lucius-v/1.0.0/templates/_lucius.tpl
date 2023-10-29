@@ -14,7 +14,13 @@ workload:
           securityContext:
             runAsUser: {{ .Values.luciusRunAs.user }}
             runAsGroup: {{ .Values.luciusRunAs.group }}
-            readOnlyRootFilesystem: false          
+            readOnlyRootFilesystem: false  
+          {{ with .Values.luciusConfig.additionalEnvs }}
+          env:
+            {{ range $env := . }}
+            {{ $env.name }}: {{ $env.value }}
+            {{ end }}
+          {{ end }}
           {{ with .Values.luciusConfig.additionalEnvs }}
           envList:
             {{ range $env := . }}
@@ -22,6 +28,7 @@ workload:
               values: {{ $env.value }}
             {{ end }}
           {{ end }}
+
           probes:
             liveness:
               enabled: false
