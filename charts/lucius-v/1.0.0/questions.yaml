@@ -50,7 +50,7 @@ questions:
           schema:
             type: int
             min: 2
-            default: 568
+            default: 1000
             required: true
         - variable: group
           label: Group ID
@@ -58,7 +58,7 @@ questions:
           schema:
             type: int
             min: 2
-            default: 568
+            default: 1000
             required: true
 
   - variable: luciusStorage
@@ -94,7 +94,6 @@ questions:
                   show_if: [["type", "=", "ixVolume"]]
                   required: true
                   hidden: true
-                  immutable: true
                   default: "db"
                   $ref:
                     - "normalize/ixVolume"
@@ -103,7 +102,6 @@ questions:
                 schema:
                   type: hostpath
                   show_if: [["type", "=", "hostPath"]]
-                  immutable: true
                   required: true
  
   - variable: resources
