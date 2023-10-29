@@ -21,34 +21,34 @@ workload:
               values: {{ $env.value }}
             {{ end }}
           {{ end }}
-          probes:
-            liveness:
-              enabled: true
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  chmod +x /usr/local/bin/docker-healthcheck.sh && \
-                  /usr/local/bin/docker-healthcheck.sh || exit 1
-            readiness:
-              enabled: true
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  chmod +x /usr/local/bin/docker-healthcheck.sh && \
-                  /usr/local/bin/docker-healthcheck.sh || exit 1
-            startup:
-              enabled: true
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  chmod +x /usr/local/bin/docker-healthcheck.sh && \
-                  /usr/local/bin/docker-healthcheck.sh || exit 1
+          # probes:
+          #   liveness:
+          #     enabled: true
+          #     type: exec
+          #     command:
+          #       - /bin/sh
+          #       - -c
+          #       - |
+          #         chmod +x /usr/local/bin/docker-healthcheck.sh && \
+          #         /usr/local/bin/docker-healthcheck.sh || exit 1
+          #   readiness:
+          #     enabled: true
+          #     type: exec
+          #     command:
+          #       - /bin/sh
+          #       - -c
+          #       - |
+          #         chmod +x /usr/local/bin/docker-healthcheck.sh && \
+          #         /usr/local/bin/docker-healthcheck.sh || exit 1
+          #   startup:
+          #     enabled: true
+          #     type: exec
+          #     command:
+          #       - /bin/sh
+          #       - -c
+          #       - |
+          #         chmod +x /usr/local/bin/docker-healthcheck.sh && \
+          #         /usr/local/bin/docker-healthcheck.sh || exit 1
           initContainers:
           {{- include "ix.v1.common.app.permissions" (dict "containerName" "01-permissions"
                                                         "UID" .Values.ctpbotRunAs.user
