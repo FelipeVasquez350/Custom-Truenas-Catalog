@@ -29,34 +29,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-          # probes:
-          #   liveness:
-          #     enabled: true
-          #     type: exec
-          #     command:
-          #       - /bin/sh
-          #       - -c
-          #       - |
-          #         chmod +x /usr/local/bin/docker-healthcheck.sh && \
-          #         /usr/local/bin/docker-healthcheck.sh || exit 1
-          #   readiness:
-          #     enabled: true
-          #     type: exec
-          #     command:
-          #       - /bin/sh
-          #       - -c
-          #       - |
-          #         chmod +x /usr/local/bin/docker-healthcheck.sh && \
-          #         /usr/local/bin/docker-healthcheck.sh || exit 1
-          #   startup:
-          #     enabled: true
-          #     type: exec
-          #     command:
-          #       - /bin/sh
-          #       - -c
-          #       - |
-          #         chmod +x /usr/local/bin/docker-healthcheck.sh && \
-          #         /usr/local/bin/docker-healthcheck.sh || exit 1
 
 {{/* Persistence */}}
 persistence:
