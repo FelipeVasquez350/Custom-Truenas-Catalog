@@ -21,14 +21,6 @@ workload:
             {{ $env.name }}: {{ $env.value }}
             {{ end }}
           {{ end }}
-          {{ with .Values.luciusConfig.additionalEnvs }}
-          envList:
-            {{ range $env := . }}
-            - name: {{ $env.name }}
-              values: {{ $env.value }}
-            {{ end }}
-          {{ end }}
-
           probes:
             liveness:
               enabled: false
