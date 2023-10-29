@@ -21,40 +21,34 @@ workload:
               values: {{ $env.value }}
             {{ end }}
           {{ end }}
-          # probes:
-          #   liveness:
-          #     enabled: true
-          #     type: exec
-          #     command:
-          #       - /bin/sh
-          #       - -c
-          #       - |
-          #         chmod +x /usr/local/bin/docker-healthcheck.sh && \
-          #         /usr/local/bin/docker-healthcheck.sh || exit 1
-          #   readiness:
-          #     enabled: true
-          #     type: exec
-          #     command:
-          #       - /bin/sh
-          #       - -c
-          #       - |
-          #         chmod +x /usr/local/bin/docker-healthcheck.sh && \
-          #         /usr/local/bin/docker-healthcheck.sh || exit 1
-          #   startup:
-          #     enabled: true
-          #     type: exec
-          #     command:
-          #       - /bin/sh
-          #       - -c
-          #       - |
-          #         chmod +x /usr/local/bin/docker-healthcheck.sh && \
-          #         /usr/local/bin/docker-healthcheck.sh || exit 1
-          initContainers:
-          {{- include "ix.v1.common.app.permissions" (dict "containerName" "01-permissions"
-                                                        "UID" .Values.ctpbotRunAs.user
-                                                        "GID" .Values.ctpbotRunAs.group
-                                                        "mode" "check"
-                                                        "type" "init") | nindent 8 }}
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  chmod +x /usr/local/bin/docker-healthcheck.sh && \
+                  /usr/local/bin/docker-healthcheck.sh || exit 1
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  chmod +x /usr/local/bin/docker-healthcheck.sh && \
+                  /usr/local/bin/docker-healthcheck.sh || exit 1
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  chmod +x /usr/local/bin/docker-healthcheck.sh && \
+                  /usr/local/bin/docker-healthcheck.sh || exit 1
 
 {{/* Persistence */}}
 persistence:
@@ -67,8 +61,6 @@ persistence:
       ctpbot:
         ctpbot:
           mountPath: /bot/archive
-        01-permissions:
-          mountPath: /mnt/directories/bot/archive
   tmp:
     enabled: true
     type: emptyDir
@@ -90,7 +82,5 @@ persistence:
       ctpbot:
         ctpbot:
           mountPath: {{ $storage.mountPath }}
-        01-permissions:
-          mountPath: /mnt/directories{{ $storage.mountPath }}
   {{- end }}
 {{- end -}}
