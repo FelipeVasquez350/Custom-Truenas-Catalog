@@ -52,11 +52,11 @@ workload:
 
 {{/* Persistence */}}
 persistence:
-  archive:
+  db:
     enabled: true
-    type: {{ .Values.luciusStorage.archive.type }}
-    datasetName: {{ .Values.luciusStorage.archive.datasetName | default "" }}
-    hostPath: {{ .Values.luciusStorage.archive.hostPath | default "" }}
+    type: {{ .Values.luciusStorage.db.type }}
+    datasetName: {{ .Values.luciusStorage.db.datasetName | default "" }}
+    hostPath: {{ .Values.luciusStorage.db.hostPath | default "" }}
     targetSelector:
       lucius:
         lucius:
