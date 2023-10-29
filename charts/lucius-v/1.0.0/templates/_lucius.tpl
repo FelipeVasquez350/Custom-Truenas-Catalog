@@ -68,7 +68,7 @@ persistence:
     targetSelector:
       lucius:
         lucius:
-          mountPath: /db
+          mountPath: /home/lucius/db
   tmp:
     enabled: true
     type: emptyDir
