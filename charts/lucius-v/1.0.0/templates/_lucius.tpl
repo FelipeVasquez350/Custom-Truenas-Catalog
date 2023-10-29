@@ -9,6 +9,7 @@ workload:
         lucius:
           enabled: true
           primary: true
+          tty: true
           imageSelector: image
           securityContext:
             runAsUser: {{ .Values.luciusRunAs.user }}
