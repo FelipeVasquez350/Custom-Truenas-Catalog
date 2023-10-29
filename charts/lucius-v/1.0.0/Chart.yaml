@@ -16,7 +16,7 @@ dependencies:
     repository: file://../../../common
     version: 1.0.0
 home: https://github.com/FelipeVasquez350/Lucius-V
-icon: https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-v/1.0.0/icon.png
+icon: https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/ctpbot/1.0.0/icon.png
 sources:
   - https://github.com/FelipeVasquez350/Lucius-V
 keywords:
