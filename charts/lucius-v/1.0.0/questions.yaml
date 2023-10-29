@@ -1,23 +1,23 @@
 groups:
-  - name: CTPBot Configuration
-    description: CTPBot application configuration
+  - name: Lucius-V Configuration
+    description: Lucius-V application configuration
   - name: User and Group Configuration
-    description: Configure User and Group for CTPBot
+    description: Configure User and Group for Lucius-V
   - name: Storage Configuration
-    description: Configure storage for CTPBot
+    description: Configure storage for Lucius-V
   - name: Resource Limits
     description: Set CPU/memory limits for Kubernetes Pod
 
 questions:
-  - variable: ctpbotConfig
+  - variable: luciusConfig
     label: ""
-    group: CTPBot Configuration
+    group: Lucius-V Configuration
     schema:
       type: dict
       attrs:
         - variable: additionalEnvs
           label: Additional Environment Variables
-          description: Configure additional environment variables for CTPBot.
+          description: Configure additional environment variables for Lucius-V.
           schema:
             type: list
             default: []
@@ -38,7 +38,7 @@ questions:
                         type: string
                         required: true
 
-  - variable: ctpbotRunAs
+  - variable: luciusRunAs
     label: ""
     group: User and Group Configuration
     schema:
@@ -46,7 +46,7 @@ questions:
       attrs:
         - variable: user
           label: User ID
-          description: The user id that CTPBot will run as.
+          description: The user id that Lucius-V will run as.
           schema:
             type: int
             min: 2
@@ -54,22 +54,22 @@ questions:
             required: true
         - variable: group
           label: Group ID
-          description: The group id that CTPBot will run as.
+          description: The group id that Lucius-V will run as.
           schema:
             type: int
             min: 2
             default: 568
             required: true
 
-  - variable: ctpbotStorage
+  - variable: luciusStorage
     label: ""
     group: Storage Configuration
     schema:
       type: dict
       attrs:
-        - variable: archive
-          label: CTPBot Config Storage
-          description: The path to store CTPBot Configuration.
+        - variable: db
+          label: Lucius-V Config Storage
+          description: The path to store Lucius-V Configuration.
           schema:
             type: dict
             attrs:
@@ -96,7 +96,7 @@ questions:
                   required: true
                   hidden: true
                   immutable: true
-                  default: "archive"
+                  default: "db"
                   $ref:
                     - "normalize/ixVolume"
               - variable: hostPath
@@ -120,7 +120,7 @@ questions:
             attrs:
               - variable: cpu
                 label: CPU
-                description: CPU limit for CTPBot.
+                description: CPU limit for Lucius-V.
                 schema:
                   type: string
                   max_length: 6
@@ -134,7 +134,7 @@ questions:
                   required: true
               - variable: memory
                 label: Memory
-                description: Memory limit for CTPBot.
+                description: Memory limit for Lucius-V.
                 schema:
                   type: string
                   max_length: 12

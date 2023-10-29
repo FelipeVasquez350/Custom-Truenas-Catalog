@@ -1,0 +1,23 @@
+name: lucius-v
+description: lucius-v chart test
+annotations:
+  title: Lucius V
+type: application
+version: 1.0.0
+apiVersion: v2
+appVersion: 1.0.0
+kubeVersion: '>=1.16.0-0'
+maintainers:
+  - name: v
+    url: https://felipe350.com/
+    email: felipe.vasquez.lazzara@gmail.com
+dependencies:
+  - name: common
+    repository: file://../../../common
+    version: 1.0.0
+home: https://github.com/FelipeVasquez350/Lucius-V
+icon: https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-v/1.0.0/icon.png
+sources:
+  - https://github.com/FelipeVasquez350/Lucius-V
+keywords:
+  - bot

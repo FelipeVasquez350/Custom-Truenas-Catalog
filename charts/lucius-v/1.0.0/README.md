@@ -1,0 +1,1 @@
+If this works then i have made the wrong choices for my dockerfile
