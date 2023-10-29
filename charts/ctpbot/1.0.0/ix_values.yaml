@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/felipevasquez350/lucius-v
+  repository: ghcr.io/felipevasquez350/ctpbot
   pullPolicy: IfNotPresent
-  tag: release
+  tag: latest
 
 resources:
   limits:
