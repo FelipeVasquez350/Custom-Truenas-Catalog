@@ -9,6 +9,7 @@ workload:
         ctpbot:
           enabled: true
           primary: true
+          tty: true
           imageSelector: image
           securityContext:
             runAsUser: {{ .Values.ctpbotRunAs.user }}
@@ -23,32 +24,11 @@ workload:
           {{ end }}
           probes:
             liveness:
-              enabled: true
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  chmod +x /usr/local/bin/docker-healthcheck.sh && \
-                  /usr/local/bin/docker-healthcheck.sh || exit 1
+              enabled: false
             readiness:
-              enabled: true
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  chmod +x /usr/local/bin/docker-healthcheck.sh && \
-                  /usr/local/bin/docker-healthcheck.sh || exit 1
+              enabled: false
             startup:
-              enabled: true
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  chmod +x /usr/local/bin/docker-healthcheck.sh && \
-                  /usr/local/bin/docker-healthcheck.sh || exit 1
+              enabled: false
 
 {{/* Persistence */}}
 persistence:
