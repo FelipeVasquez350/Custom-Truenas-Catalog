@@ -1,0 +1,20 @@
+image:
+  repository: ghcr.io/felipevasquez350/lucius-vii
+  pullPolicy: IfNotPresent
+  tag: latest
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+
+luciusConfig:
+  additionalEnvs: []
+luciusRunAs:
+  user: 1000
+  group: 1000
+luciusStorage:
+  db:
+    type: ixVolume
+    datasetName: db
+  additionalStorages: []

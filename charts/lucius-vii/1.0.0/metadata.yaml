@@ -1,0 +1,8 @@
+runAsContext:
+  - userName: lucius-vii
+    groupName: lucius-vii
+    gid: 1000
+    uid: 1000
+    description: Lucius-VII has to run as a root user.
+capabilities: []
+hostMounts: []

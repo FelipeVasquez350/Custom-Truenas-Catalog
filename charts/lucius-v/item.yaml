@@ -1,7 +1,7 @@
-icon_url: https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/ctpbot/1.0.0/icon.png
+icon_url: https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-v/1.0.0/icon.png
 categories:
   - productivity
 screenshots:
-  - https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/ctpbot/1.0.0/screenshot_1.png
+  - https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-v/1.0.0/screenshot_1.png
 tags:
   - bot
