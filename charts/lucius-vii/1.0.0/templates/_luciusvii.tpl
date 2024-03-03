@@ -12,10 +12,10 @@ workload:
           tty: true
           imageSelector: image
           securityContext:
-            runAsUser: {{ .Values.luciusRunAs.user }}
-            runAsGroup: {{ .Values.luciusRunAs.group }}
+            runAsUser: {{ .Values.luciusviiRunAs.user }}
+            runAsGroup: {{ .Values.luciusviiRunAs.group }}
             readOnlyRootFilesystem: false  
-          {{ with .Values.luciusConfig.additionalEnvs }}
+          {{ with .Values.luciusviiConfig.additionalEnvs }}
           env:
             {{ range $env := . }}
             {{ $env.name }}: {{ $env.value }}

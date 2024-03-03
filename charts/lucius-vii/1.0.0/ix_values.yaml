@@ -3,18 +3,16 @@ image:
   pullPolicy: IfNotPresent
   tag: latest
 
+
+
+luciusviiConfig:
+  additionalEnvs: []
+
+luciusviiRunAs:
+  user: 1000
+  group: 1000
+
 resources:
   limits:
     cpu: 4000m
     memory: 8Gi
-
-luciusConfig:
-  additionalEnvs: []
-luciusRunAs:
-  user: 1000
-  group: 1000
-luciusStorage:
-  db:
-    type: ixVolume
-    datasetName: db
-  additionalStorages: []

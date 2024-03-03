@@ -199,7 +199,7 @@
               }
           },
               {
-                  "variable": "luciusRunAs",
+                  "variable": "luciusviiRunAs",
                   "label": "",
                   "group": "User and Group Configuration",
                   "schema": {
