@@ -1,0 +1,284 @@
+{
+  "1.0.0": {
+      "healthy": true,
+      "supported": true,
+      "healthy_error": null,
+      "location": "/__w/charts/charts/charts/lucius-vii/1.0.0",
+      "last_update": "2024-03-03 16:00:00",
+      "required_features": [
+        "normalize/ixVolume"      
+      ],
+      "human_version": "2024.3.3",
+      "version": "1.0.0",
+      "chart_metadata": {
+          "name": "lucius-vii",
+          "description": "The bot itself but now with a brain.",
+          "annotations": {
+              "title": "Lucius-VII"
+          },
+          "type": "application",
+          "version": "1.0.0",
+          "apiVersion": "v2",
+          "appVersion": "7",
+          "kubeVersion": ">=1.16.0-0",
+          "maintainers": [
+            {
+              "name": "felipe350",
+              "url": "https://felipe350.com",
+              "email": "felipe350@proton.me"
+            }
+          ],
+          "dependencies": [
+              {
+                  "name": "common",
+                  "repository": "file://../../../common/1.0.0",
+                  "version": "1.0.0"
+              }
+          ],
+          "home": "https://github.com/FelipeVasquez350/Lucius-VII",
+          "icon": "https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-vii/1.0.0/icon.png",
+          "sources": [
+            "https://github.com/FelipeVasquez350/Lucius-VII"
+          ],
+          "keywords": [
+            "bot"
+          ]
+      },
+      "app_metadata": {
+          "runAsContext": [
+              {
+                  "userName": "lucius-vii",
+                  "groupName": "lucius-vii",
+                  "gid": 1000,
+                  "uid": 1000,
+                  "description": "Lucius-VII has to run as a root user."
+              }
+          ],
+          "capabilities": [
+              {
+                  "name": "CHOWN",
+                  "description": "Lucius-VII is able to chown files."
+              },
+              {
+                  "name": "FOWNER",
+                  "description": "Lucius-VII is able to bypass permission checks for it's sub-processes."
+              },
+              {
+                  "name": "SYS_CHROOT",
+                  "description": "Lucius-VII is able to use chroot."
+              },
+              {
+                  "name": "MKNOD",
+                  "description": "Lucius-VII is able to create device nodes."
+              },
+              {
+                  "name": "DAC_OVERRIDE",
+                  "description": "Lucius-VII is able to bypass permission checks."
+              },
+              {
+                  "name": "FSETID",
+                  "description": "Lucius-VII is able to set file capabilities."
+              },
+              {
+                  "name": "KILL",
+                  "description": "Lucius-VII is able to kill processes."
+              },
+              {
+                  "name": "SETGID",
+                  "description": "Lucius-VII is able to set group ID for it's sub-processes."
+              },
+              {
+                  "name": "SETUID",
+                  "description": "Lucius-VII is able to set user ID for it's sub-processes."
+              },
+              {
+                  "name": "SETPCAP",
+                  "description": "Lucius-VII is able to set process capabilities."
+              },
+              {
+                  "name": "NET_BIND_SERVICE",
+                  "description": "Lucius-VII is able to bind to privileged ports."
+              },
+              {
+                  "name": "SETFCAP",
+                  "description": "Lucius-VII is able to set file capabilities."
+              },
+              {
+                  "name": "NET_RAW",
+                  "description": "Lucius-VII is able to use raw sockets."
+              },
+              {
+                  "name": "AUDIT_WRITE",
+                  "description": "Lucius-VII is able to write to audit log."
+              },
+              {
+                  "name": "SYS_MODULE",
+                  "description": "Lucius-VII is able to load kernel modules."
+              },
+              {
+                  "name": "NET_ADMIN",
+                  "description": "Lucius-VII is able to perform various network-related operations."
+              }
+          ],
+          "hostMounts": []
+      },
+      "schema": {
+          "groups": [
+              {
+                  "name": "Lucius-VII Configuration",
+                  "description": "Lucius-VII application configuration"
+              },
+              {
+                  "name": "User and Group Configuration",
+                  "description": "Configure User and Group for Lucius-VII"
+              },
+              {
+                  "name": "Resource Limits",
+                  "description": "Set CPU/memory limits for Kubernetes Pod"
+              }
+          ],
+          "portals": {
+              "web_portal": {
+                  "protocols": [
+                      "$kubernetes-resource_configmap_portal_protocol"
+                  ],
+                  "host": [
+                      "$kubernetes-resource_configmap_portal_host"
+                  ],
+                  "ports": [
+                      "$kubernetes-resource_configmap_portal_port"
+                  ],
+                  "path": "$kubernetes-resource_configmap_portal_path"
+              }
+          },
+          "questions": [
+            {
+              "variable": "luciusConfig",
+              "label": "Lucius-VII Configuration",
+              "group": "Lucius-VII Configuration",
+              "schema": {
+                  "type": "dict",
+                  "attrs": [
+                      {
+                          "variable": "additionalEnvs",
+                          "label": "Additional Environment Variables",
+                          "description": "Configure additional environment variables for Lucius-VII.",
+                          "schema": {
+                              "type": "list",
+                              "default": [],
+                              "items": [
+                                  {
+                                      "variable": "env",
+                                      "label": "Environment Variable",
+                                      "schema": {
+                                          "type": "dict",
+                                          "attrs": [
+                                              {
+                                                  "variable": "name",
+                                                  "label": "Name",
+                                                  "schema": {
+                                                      "type": "string",
+                                                      "required": true
+                                                  }
+                                              },
+                                              {
+                                                  "variable": "value",
+                                                  "label": "Value",
+                                                  "schema": {
+                                                      "type": "string",
+                                                      "required": true
+                                                  }
+                                              }
+                                          ]
+                                      }
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          },
+              {
+                  "variable": "luciusRunAs",
+                  "label": "",
+                  "group": "User and Group Configuration",
+                  "schema": {
+                      "type": "dict",
+                      "attrs": [
+                          {
+                              "variable": "user",
+                              "label": "User ID",
+                              "description": "The user id that Lucius-VII will run as.",
+                              "schema": {
+                                  "type": "int",
+                                  "min": 2,
+                                  "default": 1000,
+                                  "required": true
+                              }
+                          },
+                          {
+                              "variable": "group",
+                              "label": "Group ID",
+                              "description": "The group id that Lucius-VII will run as.",
+                              "schema": {
+                                  "type": "int",
+                                  "min": 2,
+                                  "default": 1000,
+                                  "required": true
+                              }
+                          }
+                      ]
+                  }
+              },
+              {
+                  "variable": "resources",
+                  "label": "Enable Pod resource limits",
+                  "group": "Resource Limits",
+                  "schema": {
+                      "type": "boolean",
+                      "default": false
+                  }
+              },
+              {
+                  "variable": "cpuLimit",
+                  "label": "CPU Limit resource limits",
+                  "description": "CPU resource limit allow  plain integer values with suffix m(milli) e.g 1000m, 100.",
+                  "group": "Resource Limits",
+                  "schema": {
+                      "type": "string",
+                      "show_if": [
+                          [
+                              "enableResourceLimits",
+                              "=",
+                              true
+                          ]
+                      ],
+                      "valid_chars": "^\\d+(?:\\.\\d+(?!.*m$)|m?$)",
+                      "default": "4000m"
+                  }
+              },
+              {
+                  "variable": "memLimit",
+                  "label": "Memory Limit",
+                  "group": "Resource Limits",
+                  "description": "Memory limits is specified by number of bytes. Followed by quantity suffix like E,P,T,G,M,k and Ei,Pi,Ti,Mi,Gi,Ki can also be used. e.g 129e6, 129M, 128974848000m, 123Mi",
+                  "schema": {
+                      "type": "string",
+                      "show_if": [
+                          [
+                              "enableResourceLimits",
+                              "=",
+                              true
+                          ]
+                      ],
+                      "valid_chars": "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$",
+                      "default": "8Gi"
+                  }
+              }
+          ]
+      },
+      "app_readme": "A AI-Powered discord bot written in haskell.",
+      "detailed_readme": "The bot itself but now with a brain, powered by [Ollama](https://ollama.com/)",
+      "changelog": null
+  }
+}
