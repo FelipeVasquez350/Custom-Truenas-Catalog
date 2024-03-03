@@ -3,8 +3,18 @@ groups:
     description: Lucius-VII application configuration
   - name: User and Group Configuration
     description: Configure User and Group for Lucius-VII
-  - name: Resource Limits
+  - name: Resources Configuration
     description: Set CPU/memory limits for Kubernetes Pod
+
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "$kubernetes-resource_configmap_portal_path"
 
 questions:
   - variable: luciusviiConfig
@@ -59,9 +69,9 @@ questions:
             default: 1000
             required: true
  
-  - variable: resources
-    group: Resources Configuration
+  - variable: resources    
     label: ""
+    group: Resources Configuration
     schema:
       type: dict
       attrs:
