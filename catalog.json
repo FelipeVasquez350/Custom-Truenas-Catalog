@@ -1,0 +1,110 @@
+{
+  "charts": {
+    "ctpbot": {
+      "app_readme": "Remake of the [original Calamity Texture Pack Bot](https://github.com/daim0/CTPBot) now as a truenas scale app",
+      "categories": [
+        "productivity"
+      ],
+      "description": "Sprite lookup bot for the Terraria Calamity Texturepack.",
+      "healthy": true,
+      "healthy_error": null,
+      "home": "https://github.com/FelipeVasquez350/CTPBot",
+      "location": "/__w/charts/charts/charts/ctpbot",
+      "latest_version": "1.0.0",
+      "latest_app_version": "2024.3.3",
+      "latest_human_version": "2024.3.3",
+      "last_update": "2024-03-03 16:00:00",
+      "name": "ctpbot",
+      "recommended": false,
+      "title": "CTPBot",
+      "maintainers": [
+        {
+          "name": "felipe350",
+          "url": "https://felipe350.com",
+          "email": "felipe350@proton.me"
+        }
+      ],
+      "tags": [
+        "bot"
+      ],
+      "screenshots": [
+        "https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/ctpbot/1.0.0/screenshot_1.png"
+      ],
+      "sources": [
+        "https://github.com/FelipeVasquez350/CTPBot",
+        "https://github.com/daim0/CTPBot"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/ctpbot/1.0.0/icon.png"
+    },
+    "lucius-v": {
+      "app_readme": "Simple discord bot in rust.",
+      "categories": [
+        "productivity"
+      ],
+      "description": "Our beloved will not be forgotten.",
+      "healthy": true,
+      "healthy_error": null,
+      "home": "https://github.com/FelipeVasquez350/Lucius-V",
+      "location": "/__w/charts/charts/charts/lucius-v",
+      "latest_version": "1.0.0",
+      "latest_app_version": "2024.3.3",
+      "latest_human_version": "2024.3.3",
+      "last_update": "2024-03-03 16:00:00",
+      "name": "lucius-v",
+      "recommended": false,
+      "title": "Lucius-V",
+      "maintainers": [
+        {
+          "name": "felipe350",
+          "url": "https://felipe350.com",
+          "email": "felipe350@proton.me"
+        }
+      ],
+      "tags": [
+        "bot"
+      ],
+      "screenshots": [
+        "https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-v/1.0.0/screenshot_1.png"
+      ],
+      "sources": [
+        "https://github.com/FelipeVasquez350/Lucius-V"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-v/1.0.0/icon.png"
+    },
+    "lucius-vii": {
+      "app_readme": "A AI-Powered discord bot written in haskell.",
+      "categories": [
+        "productivity"
+      ],
+      "description": "The bot itself but now with a brain.",
+      "healthy": true,
+      "healthy_error": null,
+      "home": "https://github.com/FelipeVasquez350/Lucius-VII",
+      "location": "/__w/charts/charts/charts/lucius-vii",
+      "latest_version": "1.0.0",
+      "latest_app_version": "2024.3.3",
+      "latest_human_version": "2024.3.3",
+      "last_update": "2024-03-03 16:00:00",
+      "name": "lucius-vii",
+      "recommended": false,
+      "title": "Lucius-VII",
+      "maintainers": [
+        {
+          "name": "felipe350",
+          "url": "https://felipe350.com",
+          "email": "felipe350@proton.me"
+        }
+      ],
+      "tags": [
+        "bot"
+      ],
+      "screenshots": [
+        "https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-vii/1.0.0/screenshot_1.png"
+      ],
+      "sources": [
+        "https://github.com/FelipeVasquez350/Lucius-VII"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-vii/1.0.0/icon.png"
+    }
+  }
+}
