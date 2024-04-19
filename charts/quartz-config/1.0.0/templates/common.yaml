@@ -2,6 +2,7 @@
 
 {{/* Merge the templates with Values */}}
 {{- $_ := mustMergeOverwrite .Values (include "quartz.workload" $ | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values (include "quartz.service" $ | fromYaml) -}}
 {{- $_ := mustMergeOverwrite .Values (include "quartz.persistence" $ | fromYaml) -}}
 
 {{- include "ix.v1.common.loader.apply" . -}}

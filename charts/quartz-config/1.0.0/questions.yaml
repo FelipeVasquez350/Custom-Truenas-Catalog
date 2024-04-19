@@ -3,6 +3,8 @@ groups:
     description: Quartz application configuration
   - name: User and Group Configuration
     description: Configure User and Group for Quartz
+  - name: Network Configuration
+    description: Configure Network for Quartz
   - name: Storage Configuration
     description: Configure storage for Quartz
   - name: Resources Configuration
@@ -70,6 +72,30 @@ questions:
             min: 2
             default: 1000
             required: true
+
+  - variable: quartzNetwork
+    label: ""
+    group: Network Configuration
+    schema:
+      type: dict
+      attrs:
+        - variable: webPort
+          label: Web Port
+          description: The port for the Quartz Web UI.
+          schema:
+            type: int
+            default: 59980
+            min: 9000
+            max: 65535
+            required: true
+        - variable: hostNetwork
+          label: Host Network
+          description: |
+            Enabling this will use the host network for Quartz.</br>
+            Web UI will listen on the port specified above.
+          schema:
+            type: boolean
+            default: false
 
   - variable: quartzStorage
     label: ""
