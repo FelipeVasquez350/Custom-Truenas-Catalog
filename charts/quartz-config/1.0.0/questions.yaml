@@ -1,10 +1,10 @@
 groups:
   - name: Quartz Configuration
     description: Quartz application configuration
-  - name: Quartz Storage
-    description: Storage Configuration
   - name: User and Group Configuration
     description: Configure User and Group for Quartz
+  - name: Storage Configuration
+    description: Quartz Storage Configuration
   - name: Resources Configuration
     description: Set CPU/memory limits for Kubernetes Pod
 
