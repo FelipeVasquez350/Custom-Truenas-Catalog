@@ -48,8 +48,8 @@
       "app_metadata": {
           "runAsContext": [
               {
-                  "userName": "quartz",
-                  "groupName": "quartz",
+                  "userName": "root",
+                  "groupName": "root",
                   "gid": 1000,
                   "uid": 1000,
                   "description": "Quartz has to run as a root user."
