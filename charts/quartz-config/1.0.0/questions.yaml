@@ -61,16 +61,16 @@ questions:
           description: The user id that Quartz will run as.
           schema:
             type: int
-            min: 2
-            default: 1000
+            min: 0
+            default: 0
             required: true
         - variable: group
           label: Group ID
           description: The group id that Quartz will run as.
           schema:
             type: int
-            min: 2
-            default: 1000
+            min: 0
+            default: 0
             required: true
 
   - variable: quartzNetwork

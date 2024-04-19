@@ -12,8 +12,8 @@ quartzConfig:
   additionalEnvs: []
 
 quartzRunAs:
-  user: 1000
-  group: 1000
+  user: 0
+  group: 0
 
 quartzNetwork:
   webPort: 59980

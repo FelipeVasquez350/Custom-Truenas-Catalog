@@ -1,8 +1,8 @@
 runAsContext:
   - userName: root
     groupName: root
-    gid: 1000
-    uid: 1000
+    gid: 0
+    uid: 0
     description: Quartz has to run as a root user.
 capabilities: 
   - name: CHOWN
