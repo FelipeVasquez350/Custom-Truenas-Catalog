@@ -128,14 +128,14 @@
               {
                   "name": "Quartz Configuration",
                   "description": "Quartz application configuration"
-              },     
-              {
-                "name": "Quartz Storage",
-                "description": "Configure storage for Quartz"
               },
               {
                   "name": "User and Group Configuration",
                   "description": "Configure User and Group for Quartz"
+              },     
+              {
+                  "name": "Storage Configuration",
+                  "description": "Configure storage for Quartz"
               },
               {
                   "name": "Resource Limits",
@@ -243,8 +243,8 @@
                       "type": "dict",
                       "attrs": [
                           {
-                              "variable": "config",
-                              "label": "Quartz Config Storage",
+                              "variable": "content",
+                              "label": "Quartz Content Storage",
                               "description": "The path to store Quartz Configuration.",
                               "schema": {
                                   "type": "dict",

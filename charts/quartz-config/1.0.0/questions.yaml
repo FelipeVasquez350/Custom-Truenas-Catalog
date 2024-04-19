@@ -4,7 +4,7 @@ groups:
   - name: User and Group Configuration
     description: Configure User and Group for Quartz
   - name: Storage Configuration
-    description: Quartz Storage Configuration
+    description: Configure storage for Quartz
   - name: Resources Configuration
     description: Set CPU/memory limits for Kubernetes Pod
 
@@ -78,7 +78,7 @@ questions:
       type: dict
       attrs:
         - variable: content
-          label: Quartz Config Storage
+          label: Quartz Content Storage
           description: The path to store Quartz Configuration.
           schema:
             type: dict
