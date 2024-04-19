@@ -14,3 +14,10 @@ quartzConfig:
 quartzRunAs:
   user: 1000
   group: 1000
+
+quartzStorage:
+  content:
+    type: ixVolume
+    ixVolumeConfig:
+      datasetName: content
+  additionalStorages: []

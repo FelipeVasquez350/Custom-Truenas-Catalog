@@ -4,5 +4,33 @@ runAsContext:
     gid: 1000
     uid: 1000
     description: Quartz has to run as a root user.
-capabilities: []
+capabilities: 
+  - name: CHOWN
+    description: Quartz is able to chown files.
+  - name: FOWNER
+    description: Quartz is able to bypass permission checks for it's sub-processes.
+  - name: SYS_CHROOT
+    description: Quartz is able to use chroot.
+  - name: MKNOD
+    description: Quartz is able to create device nodes.
+  - name: DAC_OVERRIDE
+    description: Quartz is able to bypass permission checks.
+  - name: FSETID
+    description: Quartz is able to set file capabilities.
+  - name: KILL
+    description: Quartz is able to kill processes.
+  - name: SETGID
+    description: Quartz is able to set group ID for it's sub-processes.
+  - name: SETUID
+    description: Quartz is able to set user ID for it's sub-processes.
+  - name: SETPCAP
+    description: Quartz is able to set process capabilities.
+  - name: NET_BIND_SERVICE
+    description: Quartz is able to bind to privileged ports.
+  - name: SETFCAP
+    description: Quartz is able to set file capabilities.
+  - name: NET_RAW
+    description: Quartz is able to use raw sockets.
+  - name: AUDIT_WRITE
+    description: Quartz is able to write to audit log.
 hostMounts: []

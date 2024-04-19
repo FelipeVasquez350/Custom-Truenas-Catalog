@@ -13,8 +13,20 @@ workload:
           imageSelector: image
           securityContext:
             runAsUser: {{ .Values.quartzRunAs.user }}
-            runAsGroup: {{ .Values.quartzRunAs.group }}
-            readOnlyRootFilesystem: false  
+            runAsGroup: {{ .Values.quartzRunAs.group }}            
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false              
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - FOWNER
+                - DAC_OVERRIDE
+                - CHOWN
+                - SETUID
+                - SETGID
+                - SETFCAP
+                - SETPCAP
+                - SYS_ADMIN
           {{ with .Values.quartzConfig.additionalEnvs }}
           env:
             {{ range $env := . }}
