@@ -5,4 +5,7 @@
 {{- $_ := mustMergeOverwrite .Values (include "quartz.service" $ | fromYaml) -}}
 {{- $_ := mustMergeOverwrite .Values (include "quartz.persistence" $ | fromYaml) -}}
 
+{{/* Create the configmap for portal manually*/}}
+{{- include "quartz.portal" $ -}}
+
 {{- include "ix.v1.common.loader.apply" . -}}
