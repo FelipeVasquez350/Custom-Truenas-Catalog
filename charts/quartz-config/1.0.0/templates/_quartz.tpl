@@ -14,6 +14,7 @@ workload:
           securityContext:
             runAsUser: {{ .Values.quartzRunAs.user }}
             runAsGroup: {{ .Values.quartzRunAs.group }}            
+            runAsNonRoot: false
             readOnlyRootFilesystem: false              
           {{ with .Values.quartzConfig.additionalEnvs }}
           env:
