@@ -102,9 +102,44 @@
         "https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-vii/1.0.0/screenshot_1.png"
       ],
       "sources": [
-        "https://github.com/FelipeVasquez350/Lucius-VII"
+        "https://github.com/FelipeVasquez350/quartz-config"
       ],
       "icon_url": "https://raw.githubusercontent.com/FelipeVasquez350/Custom-Truenas-Catalog/main/charts/lucius-vii/1.0.0/icon.png"
+    },
+    "quartz-config": {
+      "app_readme": "Personal Configuration for my Quartz 4 deployment",
+      "categories": [
+        "productivity"
+      ],
+      "description": "Personal quartz configuration chart",
+      "healthy": true,
+      "healthy_error": null,
+      "home": "https://github.com/FelipeVasquez350/quartz-config",
+      "location": "/__w/charts/charts/charts/quartz-config",
+      "latest_version": "1.0.0",
+      "latest_app_version": "2024.4.19",
+      "latest_human_version": "2024.4.19",
+      "last_update": "2024-04-19 15:30:00",
+      "name": "quartz-config",
+      "recommended": false,
+      "title": "Quartz Config",
+      "maintainers": [
+        {
+          "name": "felipe350",
+          "url": "https://felipe350.com",
+          "email": "felipe350@proton.me"
+        }
+      ],
+      "tags": [
+        "bot"
+      ],
+      "screenshots": [
+        "https://github.com/jackyzha0/quartz/blob/v4/quartz/static/og-image.png"
+      ],
+      "sources": [
+        "https://github.com/FelipeVasquez350/quartz-config"
+      ],
+      "icon_url": "https://github.com/jackyzha0/quartz/blob/v4/quartz/static/icon.png"
     }
   }
 }

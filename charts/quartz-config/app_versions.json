@@ -1,0 +1,320 @@
+{
+  "1.0.0": {
+      "healthy": true,
+      "supported": true,
+      "healthy_error": null,
+      "location": "/__w/charts/charts/charts/quartz-config/1.0.0",
+      "last_update": "2024-03-03 16:00:00",
+      "required_features": [
+        "normalize/ixVolume"      
+      ],
+      "human_version": "2024.3.3",
+      "version": "1.0.0",
+      "chart_metadata": {
+          "name": "quartz-config",
+          "description": "Personal quartz configuration chart",
+          "annotations": {
+              "title": "Quartz Configuration"
+          },
+          "type": "application",
+          "version": "1.0.0",
+          "apiVersion": "v2",
+          "appVersion": "7",
+          "kubeVersion": ">=1.16.0-0",
+          "maintainers": [
+            {
+              "name": "felipe350",
+              "url": "https://felipe350.com",
+              "email": "felipe350@proton.me"
+            }
+          ],
+          "dependencies": [
+              {
+                  "name": "common",
+                  "repository": "file://../../../common/1.0.0",
+                  "version": "1.0.0"
+              }
+          ],
+          "home": "https://github.com/FelipeVasquez350/quartz-config",
+          "icon": "https://github.com/jackyzha0/quartz/blob/v4/quartz/static/icon.png",
+          "sources": [
+            "https://github.com/FelipeVasquez350/quartz-config"
+          ],
+          "keywords": [
+            "bot"
+          ]
+      },
+      "app_metadata": {
+          "runAsContext": [
+              {
+                  "userName": "quartz",
+                  "groupName": "quartz",
+                  "gid": 1000,
+                  "uid": 1000,
+                  "description": "Quartz has to run as a root user."
+              }
+          ],
+          "capabilities": [
+              {
+                  "name": "CHOWN",
+                  "description": "Quartz is able to chown files."
+              },
+              {
+                  "name": "FOWNER",
+                  "description": "Quartz is able to bypass permission checks for it's sub-processes."
+              },
+              {
+                  "name": "SYS_CHROOT",
+                  "description": "Quartz is able to use chroot."
+              },
+              {
+                  "name": "MKNOD",
+                  "description": "Quartz is able to create device nodes."
+              },
+              {
+                  "name": "DAC_OVERRIDE",
+                  "description": "Quartz is able to bypass permission checks."
+              },
+              {
+                  "name": "FSETID",
+                  "description": "Quartz is able to set file capabilities."
+              },
+              {
+                  "name": "KILL",
+                  "description": "Quartz is able to kill processes."
+              },
+              {
+                  "name": "SETGID",
+                  "description": "Quartz is able to set group ID for it's sub-processes."
+              },
+              {
+                  "name": "SETUID",
+                  "description": "Quartz is able to set user ID for it's sub-processes."
+              },
+              {
+                  "name": "SETPCAP",
+                  "description": "Quartz is able to set process capabilities."
+              },
+              {
+                  "name": "NET_BIND_SERVICE",
+                  "description": "Quartz is able to bind to privileged ports."
+              },
+              {
+                  "name": "SETFCAP",
+                  "description": "Quartz is able to set file capabilities."
+              },
+              {
+                  "name": "NET_RAW",
+                  "description": "Quartz is able to use raw sockets."
+              },
+              {
+                  "name": "AUDIT_WRITE",
+                  "description": "Quartz is able to write to audit log."
+              },
+              {
+                  "name": "SYS_MODULE",
+                  "description": "Quartz is able to load kernel modules."
+              },
+              {
+                  "name": "NET_ADMIN",
+                  "description": "Quartz is able to perform various network-related operations."
+              }
+          ],
+          "hostMounts": []
+      },
+      "schema": {
+          "groups": [
+              {
+                  "name": "Quartz Configuration",
+                  "description": "Quartz application configuration"
+              },
+              {
+                  "name": "User and Group Configuration",
+                  "description": "Configure User and Group for Quartz"
+              },
+              {
+                  "name": "Resource Limits",
+                  "description": "Set CPU/memory limits for Kubernetes Pod"
+              }
+          ],
+          "portals": {
+              "web_portal": {
+                  "protocols": [
+                      "$kubernetes-resource_configmap_portal_protocol"
+                  ],
+                  "host": [
+                      "$kubernetes-resource_configmap_portal_host"
+                  ],
+                  "ports": [
+                      "$kubernetes-resource_configmap_portal_port"
+                  ],
+                  "path": "$kubernetes-resource_configmap_portal_path"
+              }
+          },
+          "questions": [
+            {
+              "variable": "quartzConfig",
+              "label": "Quartz Configuration",
+              "group": "Quartz Configuration",
+              "schema": {
+                  "type": "dict",
+                  "attrs": [
+                      {
+                          "variable": "additionalEnvs",
+                          "label": "Additional Environment Variables",
+                          "description": "Configure additional environment variables for Quartz.",
+                          "schema": {
+                              "type": "list",
+                              "default": [],
+                              "items": [
+                                  {
+                                      "variable": "env",
+                                      "label": "Environment Variable",
+                                      "schema": {
+                                          "type": "dict",
+                                          "attrs": [
+                                              {
+                                                  "variable": "name",
+                                                  "label": "Name",
+                                                  "schema": {
+                                                      "type": "string",
+                                                      "required": true
+                                                  }
+                                              },
+                                              {
+                                                  "variable": "value",
+                                                  "label": "Value",
+                                                  "schema": {
+                                                      "type": "string",
+                                                      "required": true
+                                                  }
+                                              }
+                                          ]
+                                      }
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          },
+              {
+                  "variable": "quartzRunAs",
+                  "label": "",
+                  "group": "User and Group Configuration",
+                  "schema": {
+                      "type": "dict",
+                      "attrs": [
+                          {
+                              "variable": "user",
+                              "label": "User ID",
+                              "description": "The user id that Quartz will run as.",
+                              "schema": {
+                                  "type": "int",
+                                  "min": 2,
+                                  "default": 1000,
+                                  "required": true
+                              }
+                          },
+                          {
+                              "variable": "group",
+                              "label": "Group ID",
+                              "description": "The group id that Quartz will run as.",
+                              "schema": {
+                                  "type": "int",
+                                  "min": 2,
+                                  "default": 1000,
+                                  "required": true
+                              }
+                          }
+                      ]
+                  }
+              },
+              {
+                  "variable": "resources",
+                  "group": "Resources Configuration",
+                  "label": "",
+                  "schema": {
+                      "type": "dict",
+                      "attrs": [
+                          {
+                              "variable": "limits",
+                              "label": "Limits",
+                              "schema": {
+                                  "type": "dict",
+                                  "attrs": [
+                                      {
+                                          "variable": "cpu",
+                                          "label": "CPU",
+                                          "description": "CPU limit for Quartz.",
+                                          "schema": {
+                                              "type": "string",
+                                              "max_length": 6,
+                                              "valid_chars": "^(0\\.[1-9]|[1-9][0-9]*)(\\.[0-9]|m?)$",
+                                              "valid_chars_error": "Valid CPU limit formats are</br>\n- Plain Integer - eg. 1</br>\n- Float - eg. 0.5</br>\n- Milicpu - eg. 500m\n",
+                                              "default": "4000m",
+                                              "required": true
+                                          }
+                                      },
+                                      {
+                                          "variable": "memory",
+                                          "label": "Memory",
+                                          "description": "Memory limit for Quartz.",
+                                          "schema": {
+                                              "type": "string",
+                                              "max_length": 12,
+                                              "valid_chars": "^[1-9][0-9]*([EPTGMK]i?|e[0-9]+)?$",
+                                              "valid_chars_error": "Valid Memory limit formats are</br>\n- Suffixed with E/P/T/G/M/K - eg. 1G</br>\n- Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi</br>\n- Plain Integer in bytes - eg. 1024</br>\n- Exponent - eg. 134e6\n",
+                                              "default": "8Gi",
+                                              "required": true
+                                          }
+                                      }
+                                  ]
+                              }
+                          }
+                      ]
+                  }
+              },
+              {
+                  "variable": "cpuLimit",
+                  "label": "CPU Limit resource limits",
+                  "description": "CPU resource limit allow  plain integer values with suffix m(milli) e.g 1000m, 100.",
+                  "group": "Resource Limits",
+                  "schema": {
+                      "type": "string",
+                      "show_if": [
+                          [
+                              "enableResourceLimits",
+                              "=",
+                              true
+                          ]
+                      ],
+                      "valid_chars": "^\\d+(?:\\.\\d+(?!.*m$)|m?$)",
+                      "default": "4000m"
+                  }
+              },
+              {
+                  "variable": "memLimit",
+                  "label": "Memory Limit",
+                  "group": "Resource Limits",
+                  "description": "Memory limits is specified by number of bytes. Followed by quantity suffix like E,P,T,G,M,k and Ei,Pi,Ti,Mi,Gi,Ki can also be used. e.g 129e6, 129M, 128974848000m, 123Mi",
+                  "schema": {
+                      "type": "string",
+                      "show_if": [
+                          [
+                              "enableResourceLimits",
+                              "=",
+                              true
+                          ]
+                      ],
+                      "valid_chars": "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$",
+                      "default": "8Gi"
+                  }
+              }
+          ]
+      },
+      "app_readme": "Personal Configuration for Quartz 4.",
+      "detailed_readme": "Personal Configuration for my Quartz 4 deployment",
+      "changelog": null
+  }
+}
