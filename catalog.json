@@ -134,12 +134,12 @@
         "bot"
       ],
       "screenshots": [
-        "https://github.com/jackyzha0/quartz/blob/v4/quartz/static/og-image.png"
+        "https://raw.githubusercontent.com/jackyzha0/quartz/v4/quartz/static/og-image.png"
       ],
       "sources": [
         "https://github.com/FelipeVasquez350/quartz-config"
       ],
-      "icon_url": "https://github.com/jackyzha0/quartz/blob/v4/quartz/static/icon.png"
+      "icon_url": "https://raw.githubusercontent.com/jackyzha0/quartz/v4/quartz/static/icon.png"
     }
   }
 }
